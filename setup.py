@@ -35,6 +35,7 @@ setup(
 	version=django_intenum.__version__,
 	packages=find_packages(),
 	author=django_intenum.__author__,
+	author_email=django_intenum.__email__,
 	description="An IntEnumField for Django",
 	classifiers=CLASSIFIERS,
 	download_url="https://github.com/HearthSim/django-intenumfield/tarball/master",

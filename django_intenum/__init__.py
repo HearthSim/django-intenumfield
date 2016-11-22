@@ -4,7 +4,7 @@ from django.forms.widgets import Select
 from django.utils.deconstruct import deconstructible
 
 
-__version__ = "0.9"
+__version__ = "1.0"
 __author__ = "Jerome Leclanche"
 __email__ = "jerome@leclan.ch"
 
