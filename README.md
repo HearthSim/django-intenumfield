@@ -37,6 +37,12 @@ class Job(models.Model):
 ```
 
 
+## Running the tests
+
+1. Run `pip install pytest pytest-django`
+2. Run `./setup.py test`
+
+
 ## License
 
 This project is licensed under the MIT license. The full license text is

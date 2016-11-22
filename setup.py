@@ -1,7 +1,19 @@
 #!/usr/bin/env python
 
+import os
 import django_intenum
 from setuptools import setup, find_packages
+from setuptools.command.test import test as TestCommand
+
+
+class PyTestCommand(TestCommand):
+	def run_tests(self):
+		import django
+		import pytest
+		os.environ["DJANGO_SETTINGS_MODULE"] = "tests.settings"
+		django.setup()
+		test_args = []
+		exit(pytest.main(test_args))
 
 
 CLASSIFIERS = [
@@ -29,4 +41,5 @@ setup(
 	license="MIT",
 	url="https://github.com/HearthSim/django-intenumfield",
 	zip_safe=True,
+	cmdclass={"test": PyTestCommand},
 )
