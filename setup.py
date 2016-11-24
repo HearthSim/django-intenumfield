@@ -1,9 +1,13 @@
 #!/usr/bin/env python
 
 import os
-import django_intenum
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
+
+
+__version__ = "1.0"
+__author__ = "Jerome Leclanche"
+__email__ = "jerome@leclan.ch"
 
 
 class PyTestCommand(TestCommand):
@@ -32,10 +36,10 @@ CLASSIFIERS = [
 
 setup(
 	name="django-intenumfield",
-	version=django_intenum.__version__,
+	version=__version__,
 	packages=find_packages(),
-	author=django_intenum.__author__,
-	author_email=django_intenum.__email__,
+	author=__author__,
+	author_email=__email__,
 	description="An IntEnumField for Django",
 	classifiers=CLASSIFIERS,
 	download_url="https://github.com/HearthSim/django-intenumfield/tarball/master",
