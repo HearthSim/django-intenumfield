@@ -34,17 +34,29 @@ CLASSIFIERS = [
 	"Topic :: Games/Entertainment :: Simulation",
 ]
 
+requirements = [
+	"Django >= 1.10",
+]
+
+test_requirements = [
+	"pytest",
+	"pytest-django",
+]
+
 setup(
 	name="django-intenumfield",
 	version=__version__,
 	packages=find_packages(),
 	author=__author__,
 	author_email=__email__,
-	description="An IntEnumField for Django",
-	classifiers=CLASSIFIERS,
-	download_url="https://github.com/HearthSim/django-intenumfield/tarball/master",
-	license="MIT",
+	maintainer=__author__,
+	maintainer_email=__email__,
 	url="https://github.com/HearthSim/django-intenumfield",
-	zip_safe=True,
+	description="An IntEnumField for Django",
+	download_url="https://github.com/HearthSim/django-intenumfield/tarball/master",
+	classifiers=CLASSIFIERS,
+	license="MIT",
+	install_requires=requirements,
+	tests_require=test_requirements,
 	cmdclass={"test": PyTestCommand},
 )
