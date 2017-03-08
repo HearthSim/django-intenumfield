@@ -1,4 +1,5 @@
 # Django IntEnumField
+[![Build Status](https://api.travis-ci.org/HearthSim/django-intenumfield.svg?branch=master)](https://travis-ci.org/HearthSim/django-intenumfield)
 
 An IntEnumField for Django.
 
