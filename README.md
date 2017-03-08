@@ -14,7 +14,7 @@ An IntEnumField for Django.
 ## Requirements
 
 * Python 2.7+ or 3.4+
-* Django 1.8+
+* Django 1.10+
 * enum34 library on Python 2.x
 
 
