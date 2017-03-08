@@ -9,6 +9,7 @@ env:
   - TOXENV=py27
   - TOXENV=py34
   - TOXENV=py36
+  - TOXENV=flake8
 
 cache:
   directories:
