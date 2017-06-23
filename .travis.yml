@@ -15,6 +15,7 @@ env:
 cache:
   directories:
     - $HOME/.cache/pip
+    - $TRAVIS_BUILD_DIR/.tox
 
 install:
   - pip install tox
