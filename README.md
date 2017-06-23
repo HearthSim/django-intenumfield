@@ -1,8 +1,8 @@
 # Django IntEnumField
+
 [![Build Status](https://api.travis-ci.org/HearthSim/django-intenumfield.svg?branch=master)](https://travis-ci.org/HearthSim/django-intenumfield)
 
 An IntEnumField for Django.
-
 
 ## Features
 
@@ -10,13 +10,11 @@ An IntEnumField for Django.
 * Reuse existing IntEnums as choice values
 * Integrates well with Django's admin app (display and filter)
 
-
 ## Requirements
 
 * Python 2.7+ or 3.4+
-* Django 1.10+
+* Django 1.11+
 * enum34 library on Python 2.x
-
 
 ## Usage
 
@@ -36,7 +34,6 @@ class Status(IntEnum):
 class Job(models.Model):
 	status = IntEnumField(enum=Status)
 ```
-
 
 ## License
 
