@@ -22,9 +22,10 @@ class IntEnumValidator:
 
 
 class IntEnumSelectWidget(Select):
-	def render_options(self, selected_choices):
-		selected_choices = [int(k) for k in selected_choices if k]
-		return super(IntEnumSelectWidget, self).render_options(selected_choices)
+	def format_value(self, value):
+		if value is not None:
+			value = int(value)
+		return super(IntEnumSelectWidget, self).format_value(value)
 
 
 class IntEnumField(SmallIntegerField):
