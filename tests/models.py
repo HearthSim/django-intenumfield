@@ -1,5 +1,7 @@
 from enum import IntEnum
+
 from django.db import models
+
 from django_intenum import IntEnumField
 
 

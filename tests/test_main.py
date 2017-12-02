@@ -1,6 +1,9 @@
 import enum
+
 import pytest
+
 from django_intenum import IntEnumSelectWidget
+
 from .models import SampleEnum, SampleModel
 
 
