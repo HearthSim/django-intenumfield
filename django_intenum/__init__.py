@@ -30,15 +30,32 @@ class IntEnumSelectWidget(Select):
 
 
 class IntEnumField(SmallIntegerField):
-	def __init__(self, *args, **kwargs):
-		if "enum" in kwargs:
-			# if check required for migrations (apparently)
-			self.enum = kwargs.pop("enum")
-			kwargs["choices"] = tuple((m.value, m.name) for m in self.enum)
-			kwargs["validators"] = [IntEnumValidator(self.enum)]
-			if "default" in kwargs:
-				kwargs["default"] = int(kwargs["default"])
+	def __init__(self, *args, enum=None, **kwargs):
+		self.enum = enum
+		self._default_validator = IntEnumValidator(self.enum)
+		kwargs.setdefault("validators", [self._default_validator])
+		if "default" in kwargs:
+			kwargs["default"] = int(kwargs["default"])
+
 		super().__init__(*args, **kwargs)
+
+		if self.enum:
+			self.choices = tuple((m.value, m.name) for m in self.enum)
+
+	def deconstruct(self):
+		name, path, args, keywords = super().deconstruct()
+		keywords["enum"] = self.enum
+
+		if "choices" in keywords:
+			del keywords["choices"]
+
+		validators = keywords.get("validators", [])
+		try:
+			validators.remove(self._default_validator)
+		except ValueError:
+			pass
+
+		return (name, path, args, keywords)
 
 	def from_db_value(self, value, expression, connection, context):
 		if value is not None:
