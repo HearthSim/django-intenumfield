@@ -25,7 +25,7 @@ class IntEnumSelectWidget(Select):
 	def format_value(self, value):
 		if value is not None:
 			value = int(value)
-		return super(IntEnumSelectWidget, self).format_value(value)
+		return super().format_value(value)
 
 
 class IntEnumField(SmallIntegerField):
@@ -37,7 +37,7 @@ class IntEnumField(SmallIntegerField):
 			kwargs["validators"] = [IntEnumValidator(self.enum)]
 			if "default" in kwargs:
 				kwargs["default"] = int(kwargs["default"])
-		super(IntEnumField, self).__init__(*args, **kwargs)
+		super().__init__(*args, **kwargs)
 
 	def from_db_value(self, value, expression, connection, context):
 		if value is not None:
@@ -50,4 +50,4 @@ class IntEnumField(SmallIntegerField):
 	def formfield(self, **kwargs):
 		defaults = {"widget": IntEnumSelectWidget}
 		defaults.update(kwargs)
-		return super(IntEnumField, self).formfield(**defaults)
+		return super().formfield(**defaults)

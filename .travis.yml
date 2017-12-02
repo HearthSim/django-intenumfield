@@ -2,12 +2,9 @@
 sudo: false
 language: python
 
-python:
-  - 3.6
+python: "3.6"
 
 env:
-  - TOXENV=py27-django111
-  - TOXENV=py34-django111
   - TOXENV=py36-django111
   - TOXENV=py36-djangomaster
   - TOXENV=flake8
@@ -17,13 +14,11 @@ cache:
     - $HOME/.cache/pip
     - $TRAVIS_BUILD_DIR/.tox
 
+matrix:
+  fast_finish: true
+
 install:
   - pip install tox
 
 script:
   - tox
-
-notifications:
-  email:
-    on_failure: always
-    on_success: change
