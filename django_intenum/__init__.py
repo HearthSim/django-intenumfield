@@ -30,7 +30,7 @@ class IntEnumSelectWidget(Select):
 
 
 class IntEnumField(SmallIntegerField):
-	def __init__(self, *args, enum=None, **kwargs):
+	def __init__(self, *args, enum, **kwargs):
 		self.enum = enum
 		self._default_validator = IntEnumValidator(self.enum)
 		kwargs.setdefault("validators", [self._default_validator])
@@ -39,8 +39,7 @@ class IntEnumField(SmallIntegerField):
 
 		super().__init__(*args, **kwargs)
 
-		if self.enum:
-			self.choices = tuple((m.value, m.name) for m in self.enum)
+		self.choices = tuple((m.value, m.name) for m in self.enum)
 
 	def deconstruct(self):
 		name, path, args, keywords = super().deconstruct()
