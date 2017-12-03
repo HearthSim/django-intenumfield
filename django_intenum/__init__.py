@@ -56,7 +56,7 @@ class IntEnumField(SmallIntegerField):
 
 		return (name, path, args, keywords)
 
-	def from_db_value(self, value, expression, connection, context):
+	def from_db_value(self, value, expression, connection):
 		if value is not None:
 			try:
 				return self.enum(value)

@@ -13,7 +13,7 @@ An IntEnumField for Django.
 ## Requirements
 
 * Python 3.6+
-* Django 1.11+
+* Django 2.0+
 
 ## Usage
 
