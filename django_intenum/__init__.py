@@ -48,11 +48,14 @@ class IntEnumField(SmallIntegerField):
 		if "choices" in keywords:
 			del keywords["choices"]
 
-		validators = keywords.get("validators", [])
-		try:
-			validators.remove(self._default_validator)
-		except ValueError:
-			pass
+		if "validators" in keywords:
+			validators = keywords["validators"]
+			try:
+				validators.remove(self._default_validator)
+			except ValueError:
+				pass
+		else:
+			keywords["validators"] = []
 
 		return (name, path, args, keywords)
 
