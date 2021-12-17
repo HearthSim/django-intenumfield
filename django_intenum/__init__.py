@@ -1,5 +1,4 @@
 import pkg_resources
-
 from django.core.exceptions import ValidationError
 from django.db.models import SmallIntegerField
 from django.forms.widgets import Select
