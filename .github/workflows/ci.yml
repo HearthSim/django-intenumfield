@@ -37,7 +37,7 @@ jobs:
           pip install poetry awscli
           poetry install
       - name: Run pytest
-        run: poetry run pytest --cov=untapped/ --cov-report xml --ds tests.settings
+        run: poetry run pytest --ds tests.settings
 
   release:
     name: Release
