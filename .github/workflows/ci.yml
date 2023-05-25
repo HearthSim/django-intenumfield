@@ -43,7 +43,7 @@ jobs:
     name: Release
     needs: [lint, test]
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/tags/')
+    if: startsWith(github.ref, 'refs/tags/v')
     permissions:
       id-token: write
       contents: read
