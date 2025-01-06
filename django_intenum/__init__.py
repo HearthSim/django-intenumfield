@@ -1,11 +1,12 @@
-import pkg_resources
+import importlib.metadata
+
 from django.core.exceptions import ValidationError
 from django.db.models import SmallIntegerField
 from django.forms.widgets import Select
 from django.utils.deconstruct import deconstructible
 
 
-__version__ = pkg_resources.require("django-intenumfield")[0].version
+__version__ = importlib.metadata.version("django-intenumfield")
 
 
 @deconstructible

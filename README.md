@@ -12,7 +12,7 @@ An IntEnumField for Django.
 
 ## Requirements
 
-* Python 3.6+
+* Python 3.8+
 * Django 2.2+
 
 ## Usage
