@@ -1,3 +1,4 @@
+import enum
 import importlib.metadata
 
 from django.core.exceptions import ValidationError
@@ -24,8 +25,8 @@ class IntEnumValidator:
 
 class IntEnumSelectWidget(Select):
 	def format_value(self, value):
-		if value is not None:
-			value = int(value)
+		if isinstance(value, enum.Enum):
+			value = value.value
 		return super().format_value(value)
 
 

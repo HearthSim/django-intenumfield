@@ -1,6 +1,7 @@
 import enum
 
 import pytest
+from django.forms import modelform_factory
 
 from django_intenum import IntEnumSelectWidget
 
@@ -42,3 +43,11 @@ def test_intenum_select_widget_null():
 	value = None
 	context = widget.get_context("foo", value, {})
 	assert context["widget"]["value"] == [""]
+
+
+def test_model_form_rerenders_blank_submission():
+	form = modelform_factory(SampleModel, fields=["int_field"])(data={"int_field": ""})
+
+	assert not form.is_valid()
+	assert [e.code for e in form.errors.as_data()["int_field"]] == ["required"]
+	assert 'value="" selected' in str(form["int_field"])
