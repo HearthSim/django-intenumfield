@@ -1,9 +1,10 @@
 [tool.poetry]
 name = "django-intenumfield"
-version = "2.0.0"
+version = "2.0.1"
 description = "An IntEnumField for Django"
 authors = [
     "Jerome Leclanche <jerome@leclan.ch>",
+    "Benedict Etzel <developer@beheh.de>",
 ]
 license = "MIT"
 readme = "README.md"
